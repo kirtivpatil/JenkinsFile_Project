@@ -7,7 +7,7 @@ node {
             stage('Checkout') {
             
                 // Get some code from a GitHub repository
-                git 'https://github.com/kirtivpatil/rock-paper-scissors'
+               git branch: 'Patch-1', url: 'https://github.com/kirtivpatil/rock-paper-scissors'
             
         }
 		
@@ -27,7 +27,7 @@ node {
         }
         stage('Deploy to Tomcat'){
                           
-                bat "copy target\\roshambo-1.0-SNAPSHOT.jar \"${tomcatWeb}\\roshambo-1.0-SNAPSHOT.jar\""
+                bat "copy target\\roshambo.war \"${tomcatWeb}\\roshambo.war\""
         }
         
         stage('start tomcat server')  {
